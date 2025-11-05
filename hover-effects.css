@@ -1,0 +1,40 @@
+/* Styles pour l'effet de survol des cartes */
+.card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    will-change: transform;
+}
+
+.card > * {
+    transform: translateZ(20px);
+    pointer-events: none;
+}
+
+.card a, 
+.card button,
+.card input,
+.card select {
+    pointer-events: auto;
+}
+
+/* Ajustements pour le mode sombre */
+body[data-theme="dark"] .card {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+body[data-theme="dark"] .card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Animation subtile pour le contenu de la carte */
+.card .chip,
+.card .badge,
+.card .section-title {
+    transition: transform 0.1s ease-out;
+}
+
+.card:hover .chip,
+.card:hover .badge,
+.card:hover .section-title {
+    transform: translateZ(30px);
+}
